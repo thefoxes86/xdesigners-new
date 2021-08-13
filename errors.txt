@@ -1,0 +1,219 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@pmmmwh/react-refresh-webpack-plugin": {
+      "name": "@pmmmwh/react-refresh-webpack-plugin",
+      "severity": "moderate",
+      "via": [
+        "webpack-dev-server"
+      ],
+      "effects": [
+        "react-scripts"
+      ],
+      "range": "0.3.1 - 0.5.0-beta.4",
+      "nodes": [
+        "node_modules/@pmmmwh/react-refresh-webpack-plugin"
+      ],
+      "fixAvailable": {
+        "name": "react-scripts",
+        "version": "1.1.5",
+        "isSemVerMajor": true
+      }
+    },
+    "browserslist": {
+      "name": "browserslist",
+      "severity": "moderate",
+      "via": [
+        {
+          "source": 1747,
+          "name": "browserslist",
+          "dependency": "browserslist",
+          "title": "Regular Expression Denial of Service",
+          "url": "https://npmjs.com/advisories/1747",
+          "severity": "moderate",
+          "range": ">=4.0.0 <4.16.5"
+        }
+      ],
+      "effects": [
+        "react-dev-utils"
+      ],
+      "range": "4.0.0 - 4.16.4",
+      "nodes": [
+        "node_modules/react-dev-utils/node_modules/browserslist"
+      ],
+      "fixAvailable": {
+        "name": "react-scripts",
+        "version": "1.1.5",
+        "isSemVerMajor": true
+      }
+    },
+    "chokidar": {
+      "name": "chokidar",
+      "severity": "moderate",
+      "via": [
+        "glob-parent"
+      ],
+      "effects": [
+        "watchpack-chokidar2",
+        "webpack-dev-server"
+      ],
+      "range": "1.0.0-rc1 - 2.1.8",
+      "nodes": [
+        "node_modules/watchpack-chokidar2/node_modules/chokidar",
+        "node_modules/webpack-dev-server/node_modules/chokidar"
+      ],
+      "fixAvailable": {
+        "name": "react-scripts",
+        "version": "1.1.5",
+        "isSemVerMajor": true
+      }
+    },
+    "glob-parent": {
+      "name": "glob-parent",
+      "severity": "moderate",
+      "via": [
+        {
+          "source": 1751,
+          "name": "glob-parent",
+          "dependency": "glob-parent",
+          "title": "Regular expression denial of service",
+          "url": "https://npmjs.com/advisories/1751",
+          "severity": "moderate",
+          "range": "<5.1.2"
+        }
+      ],
+      "effects": [
+        "chokidar"
+      ],
+      "range": "<5.1.2",
+      "nodes": [
+        "node_modules/watchpack-chokidar2/node_modules/glob-parent",
+        "node_modules/webpack-dev-server/node_modules/glob-parent"
+      ],
+      "fixAvailable": {
+        "name": "react-scripts",
+        "version": "1.1.5",
+        "isSemVerMajor": true
+      }
+    },
+    "react-dev-utils": {
+      "name": "react-dev-utils",
+      "severity": "moderate",
+      "via": [
+        "browserslist"
+      ],
+      "effects": [
+        "react-scripts"
+      ],
+      "range": ">=6.0.0-next.03604a46",
+      "nodes": [
+        "node_modules/react-dev-utils"
+      ],
+      "fixAvailable": {
+        "name": "react-scripts",
+        "version": "1.1.5",
+        "isSemVerMajor": true
+      }
+    },
+    "react-scripts": {
+      "name": "react-scripts",
+      "severity": "moderate",
+      "via": [
+        "@pmmmwh/react-refresh-webpack-plugin",
+        "react-dev-utils",
+        "webpack-dev-server"
+      ],
+      "effects": [],
+      "range": ">=0.10.0-alpha.328cb32e",
+      "nodes": [
+        "node_modules/react-scripts"
+      ],
+      "fixAvailable": {
+        "name": "react-scripts",
+        "version": "1.1.5",
+        "isSemVerMajor": true
+      }
+    },
+    "watchpack": {
+      "name": "watchpack",
+      "severity": "moderate",
+      "via": [
+        "watchpack-chokidar2"
+      ],
+      "effects": [
+        "webpack"
+      ],
+      "range": "1.7.2 - 1.7.5",
+      "nodes": [
+        "node_modules/watchpack"
+      ],
+      "fixAvailable": true
+    },
+    "watchpack-chokidar2": {
+      "name": "watchpack-chokidar2",
+      "severity": "moderate",
+      "via": [
+        "chokidar"
+      ],
+      "effects": [
+        "watchpack"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/watchpack-chokidar2"
+      ],
+      "fixAvailable": true
+    },
+    "webpack": {
+      "name": "webpack",
+      "severity": "moderate",
+      "via": [
+        "watchpack"
+      ],
+      "effects": [],
+      "range": "4.44.0 - 4.46.0",
+      "nodes": [
+        "node_modules/webpack"
+      ],
+      "fixAvailable": true
+    },
+    "webpack-dev-server": {
+      "name": "webpack-dev-server",
+      "severity": "moderate",
+      "via": [
+        "chokidar"
+      ],
+      "effects": [
+        "@pmmmwh/react-refresh-webpack-plugin",
+        "react-scripts"
+      ],
+      "range": "2.0.0-beta - 3.11.2",
+      "nodes": [
+        "node_modules/webpack-dev-server"
+      ],
+      "fixAvailable": {
+        "name": "react-scripts",
+        "version": "1.1.5",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 10,
+      "high": 0,
+      "critical": 0,
+      "total": 10
+    },
+    "dependencies": {
+      "prod": 1777,
+      "dev": 0,
+      "optional": 32,
+      "peer": 1,
+      "peerOptional": 0,
+      "total": 1809
+    }
+  }
+}
