@@ -1,0 +1,21 @@
+.text__block {
+  grid-area: text;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .line {
+    height: 5vh;
+    width: 1px;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 0.5px);
+  }
+  p {
+    margin-bottom: -10px !important;
+    color: black !important;
+  }
+}

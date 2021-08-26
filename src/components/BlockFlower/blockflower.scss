@@ -1,0 +1,67 @@
+.primula__block {
+  grid-area: primula;
+  background-color: var(--primula_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.giglio__block {
+  grid-area: giglio;
+  background-color: var(--giglio_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.ulivo__block {
+  grid-area: ulivo;
+  background-color: var(--ulivo_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.edera__block {
+  grid-area: edera;
+  background-color: var(--edera_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.tarassaco__block {
+  grid-area: tarassaco;
+  background-color: var(--tarassaco_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.button__service {
+  width: 100%;
+  padding: 20px 0px;
+  text-decoration: underline;
+  font-weight: 300;
+  outline: 0;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1.4rem;
+}
+
+.button__service_primula {
+  background: var(--btn-bg-primula);
+}
+.button__service_giglio {
+  background: var(--btn-bg-giglio);
+}
+.button__service_ulivo {
+  background: var(--btn-bg-ulivo);
+}
+.button__service_edera {
+  background: var(--btn-bg-edera);
+}
+.button__service_tarassaco {
+  background: var(--btn-bg-tarassaco);
+}

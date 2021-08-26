@@ -8,7 +8,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+button {
   font-family: "Raleway", sans-serif;
 }
 .app__grid_area {
@@ -33,10 +34,14 @@ p {
       text-align: center;
       z-index: 2;
     }
-    img {
+    .lazy-load-image-background {
       width: 70%;
       margin-top: -25%;
       z-index: 1;
+
+      img {
+        width: 100%;
+      }
     }
 
     p {
@@ -48,53 +53,46 @@ p {
       z-index: 2;
     }
   }
-
-  .primula__block {
-    grid-area: primula;
-    background-color: $primula_bg_color;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
-  .text__block {
-    grid-area: text;
-    background-color: white;
-  }
-  .giglio__block {
-    grid-area: giglio;
-    background-color: $giglio_bg_color;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
-  .ulivo__block {
-    grid-area: ulivo;
-    background-color: $ulivo_bg_color;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
-  .edera__block {
-    grid-area: edera;
-    background-color: $edera_bg_color;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
-  .tarassaco__block {
-    grid-area: tarassaco;
-    background-color: $tarassaco_bg_color;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
   .scroll__block {
     grid-area: scroll;
     background-color: white;
+  }
+}
+
+.magnet {
+  transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 991px) {
+  .app__grid_area {
+    width: 100vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80vh 10vh auto;
+    grid-template-areas:
+      "text"
+      "scroll"
+      "primula"
+      "giglio"
+      "ulivo"
+      "edera"
+      "tarassaco";
+
+    .block__generic {
+      padding: 15% 10%;
+      h2 {
+        font-size: 50px;
+      }
+      img {
+        width: 70%;
+        margin-top: -25%;
+        z-index: 1;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
   }
 }
