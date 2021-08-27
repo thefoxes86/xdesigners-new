@@ -12,7 +12,7 @@ function BlockFlower(props) {
     });
 
     mm.init();
-  });
+  }, []);
   return (
     <>
       <div className={`${props.name}__block block__generic`}>
@@ -20,12 +20,16 @@ function BlockFlower(props) {
 
         <LazyLoadImage src={props.image} effect="blur" />
 
-        <p>{props.text}</p>
+        <p dangerouslySetInnerHTML={{ __html: props.text }}></p>
         <button
           className={`button__service button__service_${props.name} magnet`}
         >
           È il servizio che cerco !
         </button>
+        <p
+          className={`citation citation__${props.name}`}
+          dangerouslySetInnerHTML={{ __html: props.citation }}
+        ></p>
       </div>
     </>
   );

@@ -24,35 +24,6 @@ button {
     ". ulivo tarassaco edera ."
     ". . tarassaco . .";
 
-  .block__generic {
-    padding: 15% 10%;
-    h2 {
-      font-weight: 300;
-      width: 100%;
-      font-size: 50px;
-      color: white;
-      text-align: center;
-      z-index: 2;
-    }
-    .lazy-load-image-background {
-      width: 70%;
-      margin-top: -25%;
-      z-index: 1;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    p {
-      font-weight: 300;
-      width: 100%;
-      font-size: 18px;
-      color: white;
-      text-align: center;
-      z-index: 2;
-    }
-  }
   .scroll__block {
     grid-area: scroll;
     background-color: white;
