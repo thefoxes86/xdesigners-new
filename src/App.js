@@ -9,7 +9,7 @@ const ScrollSquare = React.lazy(() => import("./components/ScrollSquare"));
 function App() {
   return (
     <div className="app__grid_area">
-      <Suspense fallback={Loader}>
+      <Suspense fallback={<Loader />}>
         <BlockFlower
           name="primula"
           title="la primula"

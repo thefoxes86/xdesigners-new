@@ -1,0 +1,44 @@
+.primula__form {
+  background-color: var(--btn-bg-primula);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.giglio__form {
+  background-color: var(--btn-bg-giglio);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.ulivo__form {
+  background-color: var(--btn-bg-ulivo);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.edera__form {
+  background-color: var(--btn-bg-edera);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.tarassaco__form {
+  background-color: var(--btn-bg-tarassaco);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.form__generic {
+  width: 100%;
+  height: 0%;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+}
