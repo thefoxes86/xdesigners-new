@@ -1,0 +1,53 @@
+
+
+.wrapperHome {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+
+    & .experienceBar {
+        position: fixed;
+        z-index: 9;
+        bottom: 0;
+        height: 100px;
+        left: 50%;
+        width: 350px;
+        margin-left: -175px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        text-transform: lowercase;
+        color: white;
+        transition: 0.5s bottom var(--animation-type);
+    }
+
+    & .removeAnimation {
+      bottom: -200px;
+    }
+
+    & .logo {
+      opacity: 1;
+      width: 350px;
+      transition: 0.5s all var(--animation-type);
+    }
+
+    & .removeLogo {
+      opacity: 0;
+      width: 440px;
+    }
+
+    
+  }
+  
+  
+  
+  
+  .cls-1 {
+    fill: black;
+  }
