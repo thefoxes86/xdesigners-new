@@ -1,0 +1,120 @@
+.primula__block {
+  grid-area: primula;
+  background-color: var(--primula_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.giglio__block {
+  grid-area: giglio;
+  background-color: var(--giglio_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.ulivo__block {
+  grid-area: ulivo;
+  background-color: var(--ulivo_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.edera__block {
+  grid-area: edera;
+  background-color: var(--edera_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.tarassaco__block {
+  grid-area: tarassaco;
+  background-color: var(--tarassaco_bg_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.button__service {
+  width: 100%;
+  padding: 20px 0px;
+  text-decoration: underline;
+  font-weight: 300;
+  outline: 0;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1.4rem;
+}
+
+.button__service_primula {
+  background: var(--btn-bg-primula);
+}
+.button__service_giglio {
+  background: var(--btn-bg-giglio);
+}
+.button__service_ulivo {
+  background: var(--btn-bg-ulivo);
+}
+.button__service_edera {
+  background: var(--btn-bg-edera);
+}
+.button__service_tarassaco {
+  background: var(--btn-bg-tarassaco);
+}
+.citation {
+  bottom: 10px;
+  left: 2%;
+  font-size: 13px !important;
+  margin-top: auto;
+  text-align: left !important;
+}
+.citation__primula {
+  color: var(--btn-bg-primula) !important;
+}
+.citation__giglio {
+  color: var(--btn-bg-giglio) !important;
+}
+.citation__ulivo {
+  color: var(--btn-bg-ulivo) !important;
+}
+.citation__edera {
+  color: var(--btn-bg-edera) !important;
+}
+.citation__tarassaco {
+  color: var(--btn-bg-tarassaco) !important;
+}
+
+.block__generic {
+  padding: 15% 10%;
+  position: relative;
+  h2 {
+    font-weight: 300;
+    width: 100%;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    z-index: 2;
+  }
+  .lazy-load-image-background {
+    width: 70%;
+    margin-top: -25%;
+    z-index: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-weight: 300;
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    z-index: 2;
+  }
+}

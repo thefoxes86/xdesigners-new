@@ -1,0 +1,69 @@
+@import "./variables";
+@import "./fonts";
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button {
+  font-family: "Raleway", sans-serif;
+}
+.app__grid_area {
+  width: 100vw;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60vh 40vh 60vh 40vh;
+  grid-template-areas:
+    "primula text text text giglio"
+    "primula ulivo scroll edera giglio"
+    ". ulivo tarassaco edera ."
+    ". . tarassaco . .";
+
+  .scroll__block {
+    grid-area: scroll;
+    background-color: white;
+  }
+}
+
+.magnet {
+  transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 991px) {
+  .app__grid_area {
+    width: 100vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80vh 10vh auto;
+    grid-template-areas:
+      "text"
+      "scroll"
+      "primula"
+      "giglio"
+      "ulivo"
+      "edera"
+      "tarassaco";
+
+    .block__generic {
+      padding: 15% 10%;
+      h2 {
+        font-size: 50px;
+      }
+      img {
+        width: 70%;
+        margin-top: -25%;
+        z-index: 1;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
