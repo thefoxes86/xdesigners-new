@@ -1,23 +1,31 @@
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
-import { overmind } from "../../context/overmind";
+import { overmind, useActions } from "../../context/overmind";
 import "./Loading.scss";
+import { Outlet } from "react-router-dom";
 
-const Loading = () => {
+const Loading = ({ load }) => {
   const [classLoading, setClassLoading] = useState("loading");
+  const actions = useActions();
 
   useEffect(() => {
-    setClassLoading("loading");
-
     setTimeout(() => {
       setClassLoading("loading enter");
     }, 100);
 
     setTimeout(() => {
       setClassLoading("loading exit");
-    }, 4000);
-  }, [overmind.state.page]);
+    }, 2000);
 
-  return <div className={classLoading}>{overmind.state.page}</div>;
+    setTimeout(() => {
+      actions.loadingState(false);
+    }, 5000);
+  }, [, load]);
+
+  return (
+    <>
+      <div className={classLoading}>{overmind.state.page}</div>
+    </>
+  );
 };
 export default Loading;

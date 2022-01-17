@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import withGlobalFunction from "../../context/withGlobalFunction";
 import { ReactSVG } from "react-svg";
-import { Link } from "react-router-dom";
+import { Link, useMatch, useNavigate } from "react-router-dom";
 import { useActions, useAppState } from "../../context/overmind";
 import logo from "../../images/logo.svg";
 import { randomProperty } from "../../utils/usefullFunctions";
@@ -29,9 +29,10 @@ const Home = (props) => {
   const [hoveredCaption, setHoveredCaption] = useState(false);
   const actions = useActions();
   const state = useAppState();
+
   useEffect(() => {
     actions.changePage("home");
-    console.log(loading);
+
     // actions.changeImagePage(texture);
     setImages(randomProperty(coreImages, 4));
   }, []);
