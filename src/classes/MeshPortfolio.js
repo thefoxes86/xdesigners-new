@@ -164,6 +164,39 @@ class MeshPortfolio {
       }
     });
   }
+
+  changePage(pageName) {
+    let image = "";
+    this.whiteMesh.position.z = -10;
+
+    switch (pageName) {
+      case "unione":
+        image = new THREE.TextureLoader().load(overmind.state.image);
+        image.needsUpdate = true;
+        this.material.uniforms.texture.value = image;
+        break;
+      case "portfolio":
+        image = new THREE.TextureLoader().load(overmind.state.image);
+        image.needsUpdate = true;
+        this.material.uniforms.texture.value = image;
+        break;
+      case "conosciamoci":
+        image = new THREE.TextureLoader().load(overmind.state.image);
+        image.needsUpdate = true;
+        this.material.uniforms.texture.value = image;
+        break;
+      case "contatti":
+        image = new THREE.TextureLoader().load(overmind.state.image);
+        image.needsUpdate = true;
+        this.material.uniforms.texture.value = image;
+        break;
+      default:
+        image = texture;
+        // image.needsUpdate = true;
+        // this.material.uniforms.texture.value = image;
+        break;
+    }
+  }
 }
 
 export default MeshPortfolio;

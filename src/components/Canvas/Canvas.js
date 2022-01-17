@@ -19,7 +19,7 @@ const Canvas = () => {
         outerAlpha={0.1}
         innerScale={0.7}
         outerScale={2}
-        trailingSpeed={15}
+        trailingSpeed={10}
       />
     </>
   );

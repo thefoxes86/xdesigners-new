@@ -9,4 +9,5 @@ export const state = {
     text: "",
     index: "",
   },
+  loading: false,
 };

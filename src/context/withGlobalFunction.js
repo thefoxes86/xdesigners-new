@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../components/Loading";
 
 const withGlobalFunction = (props) => (WrappedComponent) => {
   class WithGlobalFunction extends React.Component {
@@ -13,6 +14,7 @@ const withGlobalFunction = (props) => (WrappedComponent) => {
     render() {
       return (
         <>
+          <Loading />
           <WrappedComponent {...props} />
         </>
       );

@@ -17,4 +17,15 @@ const activeHoveredObject = ({ state }, value) => {
   state.activeHoveredMouse.text = value[3];
   state.activeHoveredMouse.index = value[4];
 };
-export { changePage, pushPages, changeImagePage, activeHoveredObject };
+
+const loadingState = ({ state }, value) => {
+  state.loading = value;
+};
+
+export {
+  changePage,
+  pushPages,
+  changeImagePage,
+  activeHoveredObject,
+  loadingState,
+};
