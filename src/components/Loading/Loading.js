@@ -5,26 +5,33 @@ import "./Loading.scss";
 import { Outlet } from "react-router-dom";
 
 const Loading = ({ load }) => {
-  const [classLoading, setClassLoading] = useState("loading");
+  const [classObject, setClassObject] = useState({
+    loading: "loading",
+    h1: "",
+  });
   const actions = useActions();
 
   useEffect(() => {
     setTimeout(() => {
-      setClassLoading("loading enter");
+      setClassObject({ loading: "loading enter", h1: "active" });
     }, 100);
 
     setTimeout(() => {
-      setClassLoading("loading exit");
-    }, 2000);
+      setClassObject({ loading: "loading exit", h1: "" });
+    }, 3000);
 
     setTimeout(() => {
       actions.loadingState(false);
-    }, 5000);
+    }, 6000);
   }, [, load]);
 
   return (
     <>
-      <div className={classLoading}>{overmind.state.page}</div>
+      <div className={classObject.loading}>
+        <div className="pageTitle">
+          <h1 className={classObject.h1}>{overmind.state.page}</h1>
+        </div>
+      </div>
     </>
   );
 };

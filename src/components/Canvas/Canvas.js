@@ -1,14 +1,17 @@
 import MeshPortfolio from "../../classes/MeshPortfolio";
 import AnimatedCursor from "react-animated-cursor";
+import { useEffect } from "react";
 
 const Canvas = () => {
   const classAnimation = new MeshPortfolio();
 
-  classAnimation.init();
-  classAnimation.initPost();
-  classAnimation.addObjects();
-  classAnimation.eventListener();
-  classAnimation.animate();
+  useEffect(() => {
+    classAnimation.init();
+    classAnimation.initPost();
+    classAnimation.addObjects();
+    classAnimation.eventListener();
+    classAnimation.animate();
+  }, []);
 
   return (
     <>

@@ -6,7 +6,7 @@ import { Link, useMatch, useNavigate } from "react-router-dom";
 import { useActions, useAppState } from "../../context/overmind";
 import logo from "../../images/logo.svg";
 import { randomProperty } from "../../utils/usefullFunctions";
-import coreImages from "../../images/coreImages";
+import { coreImages } from "../../images/images";
 import BlockCaption from "../../components/BlockCaption";
 import { overmind } from "../../context/overmind";
 import "./Home.scss";

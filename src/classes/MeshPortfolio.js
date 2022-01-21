@@ -3,10 +3,11 @@ import OrbitControls from "three-orbitcontrols";
 // import studio from "@theatre/studio";
 import shader from "../shader/shaders";
 import whiteShader from "../shader/whiteShader";
+import portfolioShader from "../shader/portfolioShader";
 import { overmind } from "../context/overmind";
 import texture from "../images/Ennio-Morricone_bassa.jpeg";
 import whiteTexture from "../images/white_texture.png";
-
+import { portfolioImages } from "../images/images";
 import gsap from "gsap";
 
 class MeshPortfolio {
@@ -17,6 +18,11 @@ class MeshPortfolio {
     this.meshes = [];
     this.materials = [];
     this.whiteMaterial = "";
+    this.portfolioMesh = "";
+    this.portfolioMaterial = "";
+    this.portfolioGeometry = "";
+    this.portfolioMeshes = [];
+    this.portfolioMaterials = [];
     this.cameraZ = 500;
     this.height = window.outerHeight;
     this.width = window.outerWidth;
@@ -36,7 +42,7 @@ class MeshPortfolio {
     this.camera = new THREE.PerspectiveCamera(
       75,
       this.width / this.height,
-      100,
+      1,
       1000
     );
     this.camera.position.z = this.cameraZ;
@@ -46,7 +52,7 @@ class MeshPortfolio {
 
     this.scene = new THREE.Scene();
 
-    this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
     this.renderer.setSize(this.width, this.height);
     document.body.appendChild(this.renderer.domElement);
@@ -112,6 +118,34 @@ class MeshPortfolio {
     this.whiteMesh = new THREE.Mesh(this.geometry, this.material2);
     this.whiteMesh.position.z = 10;
     this.scene.add(this.whiteMesh);
+
+    //Portfolio Mesh Shader
+
+    this.portfolioGeometry = new THREE.PlaneGeometry(
+      1250 * 0.25,
+      656 * 0.25,
+      1
+    );
+    this.portfolioMaterial = new THREE.ShaderMaterial({
+      extensions: {
+        derivatives: "#extension GL_OES_standard_derivatives: enable",
+      },
+      side: THREE.DoubleSide,
+      uniforms: {
+        uTexture: {
+          value: "",
+        },
+      },
+      vertexShader: portfolioShader.vertexShader,
+      fragmentShader: portfolioShader.fragmentShader,
+    });
+  }
+
+  removeObjectFromScene(mesh) {
+    this.scene.remove(mesh);
+    mesh.geometry.dispose();
+    mesh.material.dispose();
+    mesh = undefined;
   }
 
   createAnimation(i, proj) {}
@@ -119,6 +153,10 @@ class MeshPortfolio {
     this.time += 0.03;
 
     this.material.uniforms.time.value = this.time;
+
+    this.portfolioMeshes.forEach((el) => {
+      el.position.z += this.time * 0.01;
+    });
 
     this.renderer.render(this.scene, this.camera);
     requestAnimationFrame(this.animate.bind(this));
@@ -142,6 +180,7 @@ class MeshPortfolio {
 
   eventListener() {
     overmind.eventHub.on("action:end", (execution) => {
+      // Action on Hovered Object in Home
       if (execution.actionName === "activeHoveredObject") {
         if (overmind.state.activeHoveredMouse.hovered === true) {
           gsap.to(this.whiteMesh.position, {
@@ -157,6 +196,11 @@ class MeshPortfolio {
           });
         }
       }
+
+      // Action at change of the page
+      if (execution.actionName === "changePage") {
+        this.changePage(overmind.state.page);
+      }
     });
     overmind.eventHub.on("action:start", (execution) => {
       if (overmind.state.activeHoveredMouse.hovered === true) {
@@ -167,33 +211,51 @@ class MeshPortfolio {
 
   changePage(pageName) {
     let image = "";
-    this.whiteMesh.position.z = -10;
 
     switch (pageName) {
+      case "home":
+        this.init();
+        this.initPost();
+        this.addObjects();
+        this.eventListener();
+        this.animate();
       case "unione":
-        image = new THREE.TextureLoader().load(overmind.state.image);
-        image.needsUpdate = true;
-        this.material.uniforms.texture.value = image;
         break;
       case "portfolio":
-        image = new THREE.TextureLoader().load(overmind.state.image);
-        image.needsUpdate = true;
-        this.material.uniforms.texture.value = image;
+        this.removeObjectFromScene(this.whiteMesh);
+        this.removeObjectFromScene(this.mesh);
+        let loop = true;
+        if (portfolioImages && loop) {
+          portfolioImages.map(({ img }, index) => {
+            let material = this.portfolioMaterial.clone();
+
+            material.uniforms.uTexture.value = img;
+            material.uniforms.uTexture.needsUpdate = true;
+
+            this.portfolioMaterials.push(material);
+
+            let mesh = new THREE.Mesh(this.portfolioGeometry, material);
+
+            mesh.position.z = 20 * (index * index);
+            mesh.position.x =
+              index % 2 === 0 ? this.width * 0.15 : this.width * -0.15;
+            mesh.position.y = 10 * Math.random() * (5 - -5) + -5;
+            console.log("position", mesh.position.x);
+
+            this.portfolioMeshes.push(mesh);
+
+            this.scene.add(mesh);
+          });
+
+          loop = false;
+        }
+
         break;
       case "conosciamoci":
-        image = new THREE.TextureLoader().load(overmind.state.image);
-        image.needsUpdate = true;
-        this.material.uniforms.texture.value = image;
         break;
       case "contatti":
-        image = new THREE.TextureLoader().load(overmind.state.image);
-        image.needsUpdate = true;
-        this.material.uniforms.texture.value = image;
         break;
       default:
-        image = texture;
-        // image.needsUpdate = true;
-        // this.material.uniforms.texture.value = image;
         break;
     }
   }

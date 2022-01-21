@@ -9,6 +9,15 @@ import picasso from "./Pablo-picasso_bassa.jpeg";
 import capa from "./Robert-Capa_bassa.jpeg";
 import freud from "./Sigmund-Freud_bassa.jpeg";
 
+import thum1 from "./thum1.jpeg";
+import thum2 from "./thum2.jpeg";
+import thum3 from "./thum3.jpeg";
+import thum4 from "./thum4.jpeg";
+import thum5 from "./thum5.jpeg";
+import thum6 from "./thum6.jpeg";
+
+import * as THREE from "three";
+
 let coreImages = [
   {
     img: arbus,
@@ -72,4 +81,25 @@ let coreImages = [
   },
 ];
 
-export default coreImages;
+const portfolioImages = [
+  {
+    img: new THREE.TextureLoader().load(thum1),
+  },
+  {
+    img: new THREE.TextureLoader().load(thum2),
+  },
+  {
+    img: new THREE.TextureLoader().load(thum3),
+  },
+  {
+    img: new THREE.TextureLoader().load(thum4),
+  },
+  {
+    img: new THREE.TextureLoader().load(thum5),
+  },
+  {
+    img: new THREE.TextureLoader().load(thum6),
+  },
+];
+
+export { coreImages, portfolioImages };
