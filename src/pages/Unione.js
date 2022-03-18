@@ -27,7 +27,7 @@ const Unione = (props) => {
   useEffect(() => {
     actions.changePage("unione");
     data && actions.changeImagePage(data.page.featuredImage.node.sourceUrl);
-  });
+  }, []);
   return <>{"unione"}</>;
 };
 

@@ -18,19 +18,17 @@ const Loading = ({ load }) => {
 
     setTimeout(() => {
       setClassObject({ loading: "loading exit", h1: "" });
-    }, 3000);
+    }, 1000);
 
     setTimeout(() => {
       actions.loadingState(false);
-    }, 6000);
+    }, 1500);
   }, [, load]);
 
   return (
     <>
       <div className={classObject.loading}>
-        <div className="pageTitle">
-          <h1 className={classObject.h1}>{overmind.state.page}</h1>
-        </div>
+        <div className="pageTitle"></div>
       </div>
     </>
   );

@@ -37,7 +37,7 @@ const Header = () => {
     setTimeout(() => {
       setOpenMenu(false);
       navigate(e.target.pathname);
-    }, 2000);
+    }, 500);
   };
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Header = () => {
         menu.push(title);
       });
     actions.pushPages(menu);
-  });
+  }, []);
 
   overmind.eventHub.on("action:end", (execution) => {
     if (state.activeHoveredMouse.hovered === true) {

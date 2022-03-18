@@ -29,7 +29,7 @@ const Contatti = (props) => {
   useEffect(() => {
     actions.changePage("contatti");
     data && actions.changeImagePage(data.page.featuredImage.node.sourceUrl);
-  });
+  }, []);
   return <>{data && <h1 className="page_title">{data.page.title}</h1>}</>;
 };
 

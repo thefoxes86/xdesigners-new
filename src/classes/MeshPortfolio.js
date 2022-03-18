@@ -29,7 +29,8 @@ class MeshPortfolio {
     this.raycaster = new THREE.Raycaster();
     this.intersects = [];
     this.whiteMesh = "";
-    this.time = 1;
+    this.time1 = 1;
+    this.time2 = 1;
     this.value = 0;
     this.newImg = "";
 
@@ -58,6 +59,9 @@ class MeshPortfolio {
     document.body.appendChild(this.renderer.domElement);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.enableRotate = false;
+    this.controls.enablePan = false;
+    this.controls.zoomSpeed = 0.15;
     this.controls.update();
   }
 
@@ -138,6 +142,8 @@ class MeshPortfolio {
       },
       vertexShader: portfolioShader.vertexShader,
       fragmentShader: portfolioShader.fragmentShader,
+      transparent: true,
+      opacity: 0.1,
     });
   }
 
@@ -150,12 +156,21 @@ class MeshPortfolio {
 
   createAnimation(i, proj) {}
   animate() {
-    this.time += 0.03;
+    this.time1 += 0.03;
+    this.time2 += 0.001;
 
-    this.material.uniforms.time.value = this.time;
+    this.material.uniforms.time.value = this.time1;
 
-    this.portfolioMeshes.forEach((el) => {
-      el.position.z += this.time * 0.01;
+    this.portfolioMeshes.forEach((el, index) => {
+      if (this.camera.position.z - el.position.z > 500) {
+        console.log("stop", 100 / this.camera.position.z);
+        el.material.opacity = 1000 / this.camera.position.z;
+      }
+
+      el.position.z += this.time2 * 0.03;
+      el.rotation.x = (Math.sin(this.time2 * 10 * index) / 512) * 10;
+      el.rotation.y = (Math.sin(this.time2 * 10 * index) / 512) * 10;
+      el.rotation.z = (Math.sin(this.time2 * 10 * index) / 512) * 10;
     });
 
     this.renderer.render(this.scene, this.camera);
@@ -220,12 +235,15 @@ class MeshPortfolio {
         this.eventListener();
         this.animate();
       case "unione":
+        this.whiteMesh.position.z = 10;
         break;
       case "portfolio":
+        console.log("length", this.portfolioMeshes.length);
+        this.time2 = 1;
         this.removeObjectFromScene(this.whiteMesh);
         this.removeObjectFromScene(this.mesh);
-        let loop = true;
-        if (portfolioImages && loop) {
+
+        if (portfolioImages && this.portfolioMeshes.length === 0) {
           portfolioImages.map(({ img }, index) => {
             let material = this.portfolioMaterial.clone();
 
@@ -236,24 +254,23 @@ class MeshPortfolio {
 
             let mesh = new THREE.Mesh(this.portfolioGeometry, material);
 
-            mesh.position.z = 20 * (index * index);
+            mesh.position.z = 35 * (index * index);
             mesh.position.x =
               index % 2 === 0 ? this.width * 0.15 : this.width * -0.15;
-            mesh.position.y = 10 * Math.random() * (5 - -5) + -5;
-            console.log("position", mesh.position.x);
+            mesh.position.y = 10 * Math.random() * (15 - -5) + -5;
 
             this.portfolioMeshes.push(mesh);
 
             this.scene.add(mesh);
           });
-
-          loop = false;
         }
 
         break;
       case "conosciamoci":
+        this.whiteMesh.position.z = 10;
         break;
       case "contatti":
+        this.whiteMesh.position.z = 10;
         break;
       default:
         break;

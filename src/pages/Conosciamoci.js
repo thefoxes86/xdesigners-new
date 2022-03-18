@@ -28,7 +28,7 @@ const Conosciamoci = (props) => {
   useEffect(() => {
     actions.changePage("conosciamoci");
     data && actions.changeImagePage(data.page.featuredImage.node.sourceUrl);
-  });
+  }, []);
   return <>{"conosciamoci"}</>;
 };
 

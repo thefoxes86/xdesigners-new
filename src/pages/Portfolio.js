@@ -27,7 +27,7 @@ const Porfolio = (props) => {
   useEffect(() => {
     actions.changePage("portfolio");
     data && actions.changeImagePage(data.page.featuredImage.node.sourceUrl);
-  });
+  }, []);
   return "Portfolio";
 };
 
